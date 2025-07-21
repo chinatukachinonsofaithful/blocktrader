@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Deposit extends Model
+{
+
+    use HasFactory;
+    
+    // Define the table name if it's not the plural form of the model name
+    protected $table = 'deposit';
+
+    protected $fillable = ['user_id', 'amount', 'payment_option', 'status', 'reference_id'];
+
+     // Define relationships (if any)
+     public function user()
+     {
+         return $this->belongsTo(User::class);
+     }
+
+
+     public function paymentOption()
+     {
+         return $this->belongsTo(PaymentOption::class, 'payment_option');
+     }
+}
+
+
