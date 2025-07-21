@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: blocktrader
+    env: docker
+    plan: free
+    branch: main
+    rootDir: .
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        sync: false
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        value: https://blocktrader.onrender.com
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: MAIL_MAILER
+        value: smtp
+      - key: MAIL_HOST
+        value: sandbox.smtp.mailtrap.io
+      - key: MAIL_PORT
+        value: 2525
+      - key: MAIL_USERNAME
+        value: 67f3aa4ce67bd8
+      - key: MAIL_PASSWORD
+        value: 02467995810e5c
+      - key: MAIL_ENCRYPTION
+        value: null
+      - key: MAIL_FROM_ADDRESS
+        value: no-reply@blocktrader.com
+      - key: MAIL_FROM_NAME
+        value: BlockTrader
